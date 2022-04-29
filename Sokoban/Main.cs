@@ -31,12 +31,14 @@ namespace Sokoban {
 
 		protected override void Initialize() {
 			_world = new WorldBuilder()
+				.AddSystem(new SeekingUpdateSystem())
+				.AddSystem(new ArrivalUpdateSystem())
+				.AddSystem(new BoidUpdateSystem())
 				.AddSystem(new BoardUpdateSystem())
 				.AddSystem(new BoardRenderSystem(GraphicsDevice))
 				.AddSystem(new TextRenderSystem(GraphicsDevice))
 				.AddSystem(new ButtonUpdateSystem(GraphicsDevice))
 				.AddSystem(new ButtonRenderSystem(GraphicsDevice))
-				//.AddSystem(new RenderSystem(GraphicsDevice))
 				.Build();
 			base.Initialize();
 		}
