@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/home/qubka/.dotnet/store/|arch|/|tfm|",
+      "/home/qubka/.nuget/packages"
+    ]
+  }
+}
