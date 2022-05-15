@@ -34,7 +34,7 @@ namespace Sokoban {
 					board.MakeMove(Move.Left);
 
 				if (board.StartedTime == TimeSpan.Zero) {
-					board.StartedTime = gameTime.TotalGameTime;
+					board.StartedTime = gameTime.TotalGameTime - new TimeSpan(0, 0, board.Duration);
 				}
 			}
 			

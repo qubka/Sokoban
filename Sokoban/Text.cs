@@ -9,5 +9,6 @@ namespace Sokoban {
 
 		public string Str { get; set; }
 		public Color Color { get; set; }
+		public bool IsCentered { get; set;  }
 	}
 }

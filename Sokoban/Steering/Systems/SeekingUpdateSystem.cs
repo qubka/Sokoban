@@ -36,9 +36,8 @@ namespace Sokoban {
 				var distance = direction.Length();
                     
 				// If we close, do nothing
-				if (distance < seeking.TargetRadius) {
+				if (distance <= 0f)
 					return;
-				}
 
 				direction *= 1f / distance; // Normalize
 				direction *= boid.MaxAccel;

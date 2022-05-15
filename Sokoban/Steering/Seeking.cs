@@ -8,6 +8,5 @@ namespace Sokoban {
 		
 		public float Weight;
 		public Vector2 Target;
-		public float TargetRadius;
 	}
 }

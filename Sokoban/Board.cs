@@ -39,6 +39,7 @@ namespace Sokoban {
        public int Rows { get; private set; }
        public int Columns { get; private set; }
        public TimeSpan StartedTime { get; set; }
+       public int Duration { get; set; }
        public Move LastMove { get; set; }
 
        #endregion
@@ -48,6 +49,8 @@ namespace Sokoban {
           public char[][] Squares { get; set; }
           public int Moves { get; set; }
           public int Pushes { get; set; }
+          public string MoveList { get; set; }
+          public int Duration { get; set; }
        }
 
        #region Construction
@@ -75,13 +78,14 @@ namespace Sokoban {
           if (Columns == 0)
              Rows = 0;
           
-          StartedTime = TimeSpan.Zero;
+          //StartedTime = TimeSpan.Zero;
+          Duration = 0;
        }
        
        public Board(Cache cache) {
-          Moves = 0;
-          Pushes = 0;
-          _moveList.Clear();
+          Moves = cache.Moves;
+          Pushes = cache.Pushes;
+          _moveList = new StringBuilder(cache.MoveList);
           //_boardCache.Clear();
 
           Squares = cache.Squares;
@@ -92,8 +96,9 @@ namespace Sokoban {
 
           if (Columns == 0)
              Rows = 0;
-          
-          StartedTime = TimeSpan.Zero;
+
+          //StartedTime = TimeSpan.Zero;
+          Duration = cache.Duration;
        }
 
        #endregion

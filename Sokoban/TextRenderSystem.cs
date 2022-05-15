@@ -32,6 +32,8 @@ namespace Sokoban {
 		}
 
 		public override void Draw(GameTime gameTime) {
+			var bounds = new Rectangle(0, 0, _graphicsDevice.Viewport.Width, _graphicsDevice.Viewport.Height);
+			
 			_spriteBatch.Begin();
 
 			foreach (var entityId in ActiveEntities) {
@@ -39,8 +41,10 @@ namespace Sokoban {
 				if (string.IsNullOrEmpty(text.Str)) 
 					continue;
 				
+				var offset = text.IsCentered ? new Vector2(bounds.Width / 2f, bounds.Height / 2f) : Vector2.Zero;
+				
 				var transform = _transformMapper.Get(entityId);
-				_spriteBatch.DrawString(_font, text.Str, transform.Position, text.Color);
+				_spriteBatch.DrawString(_font, text.Str, transform.Position + offset, text.Color);
 			}
 
 			_spriteBatch.End();

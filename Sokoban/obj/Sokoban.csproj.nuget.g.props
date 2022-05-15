@@ -13,9 +13,12 @@
     <SourceRoot Include="/home/qubka/.nuget/packages/" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)entityframework/6.4.4/buildTransitive/netcoreapp3.0/EntityFramework.props" Condition="Exists('$(NuGetPackageRoot)entityframework/6.4.4/buildTransitive/netcoreapp3.0/EntityFramework.props')" />
     <Import Project="$(NuGetPackageRoot)monogame.content.builder.task/3.8.0.1641/build/MonoGame.Content.Builder.Task.props" Condition="Exists('$(NuGetPackageRoot)monogame.content.builder.task/3.8.0.1641/build/MonoGame.Content.Builder.Task.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">/home/qubka/.nuget/packages/entityframework/6.4.4</PkgEntityFramework>
+    <PkgSystem_Data_SQLite_EF6 Condition=" '$(PkgSystem_Data_SQLite_EF6)' == '' ">/home/qubka/.nuget/packages/system.data.sqlite.ef6/1.0.115.5</PkgSystem_Data_SQLite_EF6>
     <PkgMonoGame_Content_Builder_Task Condition=" '$(PkgMonoGame_Content_Builder_Task)' == '' ">/home/qubka/.nuget/packages/monogame.content.builder.task/3.8.0.1641</PkgMonoGame_Content_Builder_Task>
   </PropertyGroup>
 </Project>
